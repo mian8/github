@@ -1,0 +1,8 @@
+git config --global user.name "LJCC"			#创建用户名
+git config --global user.email "email@126.com"	#创建邮箱
+
+cd e:/											#切换目录
+makdir zxc										#当前目录创建文件夹
+pwd												#显示当前目录路径
+
+git init										#将该目录转为仓库
