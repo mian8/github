@@ -6,3 +6,8 @@ makdir zxc										#当前目录创建文件夹
 pwd												#显示当前目录路径
 
 git init										#将该目录转为仓库
+git add wenjian.txt								#将文件添加到仓库
+git commit -m "zxc"								#上传文件，更新说明"zxc"
+
+git status										#查看仓库当前状态
+git diff										#查看修改内容
