@@ -7,6 +7,7 @@ pwd												#显示当前目录路径
 
 git init										#将该目录转为仓库
 git add wenjian.txt								#将文件添加到暂存区
+	git add .									#添加所有文件到暂存区
 git commit -m "zxc"								#提交文件到当前分支，更新说明"zxc"
 
 git status										#查看仓库当前状态
