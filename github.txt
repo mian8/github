@@ -18,3 +18,15 @@ get log --pretty=oneline						#只显示版本号和修改说明
 get reset --hard HEAD^							#返回上一个版本(回滚版本数量用"^")
 get reset --hard 3248932165						#恢复至版本号3248932165
 git reflog										#显示所有的命令日志
+git checkout -- wenjian.txt						#将文件恢复到最近一次的git commit或git add
+git reset HEAD wenjian.txt						#将暂存区的文件撤销
+
+rm wenjian.txt									#删除工作区的该文件
+git rm wenjian.txt								#暂存区的删除该文件
+	git commit -m "djfhsjdk"					#提交后删除该文件
+
+ssh-keygen -t rsa -C "email@zxc.com"			#创建SSH Key    id_rsa.pub为公钥
+git remote add mingcheng git@ssh——link			#关联远程库		ssh-link来自github网站
+git push( -u) mincheng master						#将本地库推送到远程库		第一次使用时需要输入"yes"确认
+	-u											#会把本地的master分支和远程的master分支关联起来
+git clone
