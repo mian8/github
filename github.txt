@@ -34,3 +34,5 @@ git clone
 git branch name									#创建新分支name
 git checkout name								#跳转到已有分支name
 git checkout -b name							#创建并跳转到分支name
+git merge name									#合并name分支到当前分支
+git branch -d name								#删除斯大林分支
