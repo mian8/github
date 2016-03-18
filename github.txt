@@ -30,3 +30,7 @@ git remote add mingcheng git@ssh——link			#关联远程库		ssh-link来自git
 git push( -u) mincheng master						#将本地库推送到远程库		第一次使用时需要输入"yes"确认
 	-u											#会把本地的master分支和远程的master分支关联起来
 git clone
+
+git branch name									#创建新分支name
+git checkout name								#跳转到已有分支name
+git checkout -b name							#创建并跳转到分支name
