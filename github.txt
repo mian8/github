@@ -41,4 +41,6 @@ git branch -d name								#删除name分支
 git merge --on-ff -m "禁用fast forward"			#--no-ff禁用了Fast forward
 
 git stash										#临时存储
-
+git stash apply									#恢复存储内容
+git stash drop 									#删除存储内容
+git stash pop									#恢复的同时删除存储
