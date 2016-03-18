@@ -40,4 +40,5 @@ git merge name									#合并name分支到当前分支
 git branch -d name								#删除name分支
 git merge --on-ff -m "禁用fast forward"			#--no-ff禁用了Fast forward
 
-nothing
+git stash										#临时存储
+
