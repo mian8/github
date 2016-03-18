@@ -45,3 +45,8 @@ git stash apply									#恢复存储内容
 git stash drop 									#删除存储内容
 git stash pop									#恢复的同时删除存储
 git stash apply stash@{0}						#恢复到指定的版本
+
+
+git tag name (id)								#打标签，缺省id时给最近的commit打标签，缺省name和id时显示所有标签
+git show name									#查看name标签信息
+git tag -a name -m "str" id						#给指定id打标签，添加说明
