@@ -15,6 +15,7 @@ git diff										#查看修改内容
 
 git log 										#查看修改日志
 git log --pretty=oneline						#只显示版本号和修改说明
+git log --graph --pretty=oneline --abbrev-commit#查看分支合并情况
 git reset --hard HEAD^							#返回上一个版本(回滚版本数量用"^")
 git reset --hard 3248932165						#恢复至版本号3248932165
 git reflog										#显示所有的命令日志
@@ -37,3 +38,4 @@ git checkout -b name							#创建并跳转到分支name
 
 git merge name									#合并name分支到当前分支
 git branch -d name								#删除name分支
+git merge --on-ff -m "禁用fast forward"			#--no-ff禁用了Fast forward
