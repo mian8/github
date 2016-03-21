@@ -165,8 +165,9 @@ selenium.webdriver
 		find_element_by_css_selector("p em")				#后代选择
 	xpath
 		find_element_by_xpath('//input[@id="kw"]')			#获取元素
-		find_element_by_xpath("//div[@id="kw"]/form/span/input")#获取层级标签下的元素
-		find_element_by_xpath("")
+		find_element_by_xpath('//div[@id="kw"]/form/span/input')#获取层级标签下的元素
+		find_element_by_xpath('//tr[@id="kw"]/td[2]')		#获取id为kw的tr，并且它里面有两个td
+		
 
 	对元素的操作
 		size			获取元素大小
