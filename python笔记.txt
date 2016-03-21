@@ -1,0 +1,181 @@
+Python笔记
+输出print('hello world','next time',3*4,name)
+输入input("显示此处字符串"),接受的是字符串			#可使用int()函数转换为整型
+字符串输出：print(“I'am ok!”,'what\'s your name\"?\"','\\next\nline',r'\\\\t\\\')
+print(format(12.4563,'6.2f'))输出控制，占6位，保留小数点2位 	#将f替换为%可以输出百分数
+	format '{} can be {}'.format('a','b') ->a can be b
+		'{0} be nimble,{0} be qiuke,{0}jump over the{1}'.format('sex ','nothing')
+		'{name} wants to eat {food}'.format(name='Bob',food='lasagna')
+print('''line	
+...lin2
+...line3''')
+布尔值:True,False
+空值:None
+地板除:9//3 ->3			正常：9/3 ->3.0
+编码：Unicode、utf-8、ASCII
+使用ord获取字符串整肃标示:ord('A')  ->65
+使用chr将整数转化为字符:chr(65)		->'A'	'\u4e2d\u6587' ->'中文'			
+len()可以获取元素个数、长度：len(man)、len('asdas')
+list结构c=['asd','asf','ere']				#相当于数组，但元素类型可以不同
+		c[1]='asf'	c[-3]='asd'		
+		c.append('qwp')添加在末尾
+		c.insert(1,'qwe')插入在指定位置
+		c.pop()	->'asd'/0 删除'asd'
+		list.extend()拼接列表list/tuple
+tuple结构：元组.t=('asd','asf','ere')		#相当于const数组，初始化后不能修改
+		当只有一个数时，需添加“,”：s=(1) 应该为：s=(1,)
+if(……else……)判断为True则执行，多个判断elif
+		非零、非空会判断为True
+for……in……可以迭代list或tuple中的元素
+		for x in [1,2,3] ==for x in range(3)
+range(*)生成0到*的序列 range(3) ->0,1,2,3
+	range(0,18,2) 零到十八间隔二
+while (True)进行循环，为False停止
+dict字典c={'tzy':12,'ljc':560,'ltg':'sb'}  调用c['ljc']		#key：value	key不能重合
+	使用in判断:'ljc' in c ->True/False
+	使用get返回值判断 c.get('ljc') ->12  
+	c.get('xxx') ->None c.get('sda',-1) ->-1
+	c.pop('pop')删除该项 						#因为字典无序，不能使用数组代码删除
+	迭代对象：keys，values,items
+	dict.get('key',5)获取key的值，没有则返回5
+set一组不存储value的key集合	c=set([1,1,3,3,4]) ->c={1,3,4}	#不会用重复元素
+	c.add(88)添加元素
+	c.remove(88)移除元素
+	s1={1,2,3} s2={2,3,4}  s1&s2 ->{2,3} s1|s2 ->{1,2,3,4}  #set可以看成无序不重合的集合
+abs()绝对值
+max()最大值 min()
+int()/float()/str()/bool()数据类型转换
+id()查看地址
+type()查看类型
+	
+str.lower()/str.upper()将字符串改为小写/大写
+isinstance(x,(int,floatr))检查x为int或float返回1
+raise TypeError('bad operand type') ->TypeError: bad operand type 	#自定义异常
+def 定义函数
+from A import B 从A中调用B    #A是文件名，不包含.py
+pass可以作为占位符
+def sex(x,y=2)	y=2为默认参数，没有收到y的值得时候默认为2		 	#默认参数放在后面
+	def sex(x,*y)	*y为可变参数，可以接受任意个参数组成一个tuple    	#可以再可变参数位置填写*num变量，num=[1,2,3]
+	def sex(x,**y)	**关键字参数，可以接受任意个含参数名的参数组成一个dict #
+		extra = {'city': 'Beijing', 'job': 'Engineer'}	person('Jack', 24, **extra)
+	def sex(x,*,y) 	->sex(7,y=8)	*后的y为命名关键字参数				#可在其中添加默认参数开以避免缺少参数报错
+	参数顺序：必选参数，默认参数，可变参数/命名关键字参数，关键字参数
+	func(*args,**kw)
+list(range(1,9))[1:7:3] ->[2,5] =list(range(1,9))[-7:-2:3]          #'abcd'[1:3] ->'bc'
+	slice(5)  ->(None,5,None)
+	[slice(5).start:slice(5).stop]==[0:5]
+for循环的数据类型(Iterable):1、集合数据类型，如list、tuple、dict、set、str等；2、generator，包括生成器和带yield的generator function。
+	for key/value/items in d/d.value()/d.items()						#for key,value in d.items()
+		from collections import Iterable	（isinstance('acbn',Iterable))	#通过collection模块的Iterable判断是否是Iterable对象
+		for i,value in enumerate(['A','B','C'])  enumerate将list变成索引-元素对		#Iterator：生成器，可以被next()函数不断返回下一个值得对象，生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。
+	[a*a for a in range(1,3)] ->[1,4,9]  								#list生成式
+		[a*a for a in range(1,4) if a%2==0] ->[2,16]
+		[a+b for a in 'ab' for bin 'cd'] ->['ac','ad','bc','bd']
+		n=['Hello', 'World', 18, 'Apple', None]
+		[l.lower() for l in n if isinstance(l,str)]
+	(a*a for a in range(1,9)生成器	-><generator object <genexpr> at 0x0000000003792AF8>				#list()函数让Iterator把整个序列都计算出来并返回一个list
+		yield生成器在yield语句返回，再次执行从上次返回处继续执行 yield 1 -> 1
+	iter() 可以将list,dict,str等由Iterable变成Iterator
+del() 删除引用
+list(map(abs,[-1,-2,-3,-4]))  ->[1,2,3,4]		#map(f,Iterable) ->将f函数作用于Iterable每个元素，生成Iterrator
+map(f,list)将list中的每个元素执行f函数得到新的Iterator
+reduce(f,list)将list中的每个个元素累计执f(接受两个参数的函数)到一个value   #form functools import reduce
+filter(f,list)将list中的每个元素使用f进行筛选保留True构成新的Iterator
+sorted(list,key,reverse=True)将list中的元素按照key进行反向(True)排序
+
+dir()获得一个对象的所有属性和方法
+@property 添加后会将方法变为属性，可以用@Func.setter修改属性
+class类
+	object通用父类
+	__name私有变量					#不能student.__name访问，可以通过_student__name访问
+	len('asd')=='asd'.__len__()==3
+	hasattr(obj,'a')/setattr(obj,'b',6)/getattr(obj,'z',9)询问/设置/获取
+	__slots__特殊变量定义允许绑定的属性		仅对当前class有效
+	__str__()控制调用时显示的字符串
+	__repr__()控制直接调用时显示的字符串
+	__iter__()选择迭代对象，配合__next__()可以实现被迭代
+		__getitem__()改变class的属性，支持类似list[1:3]操作
+	__getattr__()增加一个动态属性，当调用不存在时执行(支持返回函数)			#当没有设置时，__getattr__默认返回None
+	__call__()实例被直接调用时返回该方法
+	
+	
+types模块										#判断对象是否是函数
+	type(abs)==types.BuiltinFunctionType
+	s.set_age=types.MethodType(set_age,s)		#给实例/类绑定方法
+	
+.split()分隔	'str'.split('a') 根据'a'将str分隔输出list
+	re.split(r'\s+','str'),以至少一个空格作为分隔
+.lower()将str转化为小写
+
+r'\\\d'  ->'\\\d'   r==row data(原始数据) 字符串前面加'r'将不会转义
+
+os模块进行文件和文件夹操作
+	os.getcwd()获取当前文件夹
+	os.chdir('e:\\test')改变工作路径到'e:\test'
+	os.listdir()显示目录下的文件和文件夹
+	os.remove()删除文件
+	os.remane('','')修改文件名
+	os.path.split('e:\\test')返回一个文件的目录名和文件名
+	os.makedirs(r'e:\\test3')创建多级目录				#os.mkdir('test')创建单个文件夹
+	os.path.getsize()获取文件大小
+	open('wenjian.txt','w',encoding='utf-8').write(sda)
+	文件操作之后补充
+
+time
+	time.sleep()
+	时间:time.strftime('%Y-%m-%d %H:%M%:%S')                     #需要先调用time
+
+selenium.webdriver
+	from selenium import webdriver			#调用webdriver
+	from selenium.webdriver.common.keys import Keys
+											#键盘模拟
+	from selenium.webdriver.common.action_chains import ActionChains
+											#鼠标模拟
+	fire=webdriver.Firefox()				#打开(Firefox)浏览器
+		fire.current_url					#获取当前url
+		fire.delete_all_cookies()			#删除浏览器所有的cookies
+		fire.delete_cookies('x')			#删除指定的'x' cookie
+		fire.close()						#退出浏览器
+		fire.quit()							#退出浏览器和和驱动
+		fire.back()							#返回上一页
+		fire.forward()						#前进到下一页
+		fire.implicitly(30)					#设置等待超时30
+		fire.maximize_window()				#浏览器最大化
+		fire.name()							#浏览器名字
+		fire.set_window_size(480,800)		#设置浏览器大小，参数为像素点
+		fire.title							#页面的title
+	<input id="kw" class="s_ipt" type="text" maxlength="100" name="wd" autocomplete="off">
+	<p> class = "important warning" <em> important</em></p>
+	fire.find_element_by_id('kw')			#通过id查找
+	fire.find_element_by_name('wd')			#通过name查找
+	fire.find_element_by_tag_name('input')	#通过tag_name查找
+	fire.find_element_by_class_name('s_ipt')#通过class查找
+		当class中有多个属性时(class='btn btn-danger btn-block')，填写需要的一个可运行
+	css_selector
+		find_element_by_css_selector('input[class=\"s_ipt\"]')#通过css查找（tag_name[id=\"value\"]）
+		find_element_by_css_selector('input.s_ipt')			#作用同上(获取class值为s_ipt的input)
+		find_element_by_css_selector('*.s_ipt')				#获取所有class值为s_ipt的标签
+		find_element_by_css_selector('.important.warning')	#获取class值为important warning的值
+		find_element_by_css_selector(input[type][maxlength])#属性中包含type、maxlen gth
+		find_element_by_css_selector(#"kw")					#通过id获取
+		find_element_by_css_selector(input[id~=\"ipt\"])	#部分属性定位：包含“ipt”的元素
+			[abc^="def"]选择abc属性以“def”开头的所有元素
+			[abc$="def"]选择abc属性以“def”结尾的所有元素
+			[abc*="def"]选择abc属性中包含字符串“def”的所有元素
+		find_element_by_css_selector("p em")				#后代选择
+	xpath
+		find_element_by_xpath('//input[@id="kw"]')			#获取元素
+		find_element_by_xpath("//div[@id="kw"]/form/span/input")#获取层级标签下的元素
+		find_element_by_xpath("")
+
+	对元素的操作
+		size			获取元素大小
+		click()			点击
+		send_keys('x')	元素赋值
+		clear()			清空
+		text			元素文本值（命令行.encode('gbk')）
+		tag_name		返回元素的tag_name
+		get_attribute('x')获取元素属性
+		Keys.BACK_SPACE 模拟'backspace'按键
+		Keys.CONTROL,'x' 模拟ctrl+x剪切
+		
