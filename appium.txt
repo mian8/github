@@ -1,0 +1,105 @@
+
+desired_caps={}
+
+device 3ffbb689							#手机序列号 zuk			adb devices
+		HC3C1MP01909								htc
+
+#手机名称，目前在安卓设备上不起作用		
+desired_caps['deviceName']='k9'			#手机型号	zuk 		sdb shell
+desired_caps['deviceName']='android'				htc
+desired_caps['deviceName']='vbox86p'				nexus
+
+#手机系统ios,android,direfoxos
+desired_caps['platformName']='Android'
+
+#选择默认自动化测试引擎,默认为Appium可以选择Seledroid
+#desired_caps['automationName']='Appium'
+
+#手机系统版本
+desired_caps['platformVersion']='6.0.1' 
+
+#需进行自动化测试的手机web浏览器名称，测绘是引用关键词为空
+desired_caps['browserName']='Safari'/'Chrome'/'Chromium'/'Browser'
+
+#设置等待时间（需确定需要字符串还是整型）超时结束会话
+desired_caps['newCommandTime‘]=60      
+
+#.ipa or .apk文件所在的本地绝对路径或者远程路径,也可以是一个包括两者之一的.zip
+desired_caps['app']='c://example.apk'
+
+#需要启动的包名和activity名
+desired_caps['appPackage']='com.thinkive.essence'
+desired_caps['appActivity']='com.android.thinkive.webapp.activity.MainActivity
+'o
+
+#设置模拟器或真机准备就绪的超时时间
+desired_caps[deviceReadyTimeout]=7
+
+#设置启动应用后准备就绪的超时时间
+desired_caps[androidDeviceReadyTimeout]=30
+
+#使用uncode输入法，重置输入法到原有状态
+desired_caps['unicodeKeyboard']=True
+desired_caps['resetKeyboard']=True #单独使用会被忽略
+
+driver=webdriver.Remote("http://127.0.0.1:4723/wd/hub",desired_caps)
+
+接口可以从appium修改
+
+PATH=lambda p:os.path.abspath( os.path.join(os.path.dirname(__file__),p))
+改为：
+PATH=lambda p:os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]),p))
+
+appium -a 127.0.0.1 -p 4723 -U HC3C1MP01909 --no-reset
+appium -a 127.0.0.1 -p 4723 -U 3ffbb689 --no-reset
+
+
+
+bilibili
+tv.danmaku.bili/tv.danmaku.bili.MainActivity
+大同
+com.thinkive.investdtzq/com.thinkive.investdtzq.ui.MainActivity
+com.thinkive.essence/com.android.thinkive.webapp.activity.MainActivity
+
+常见定位与操作
+driver.find_element_by_id(resource-id)
+driver.find_element_by_name(text)
+driver.find_element_by_link_text(link_text)
+driver.find_element_by_accessibility_id(content_desc)
+driver.find_element_by_class_name(class)
+driver.find_element_by_xpath("//class_name[contains(@id/name/index/...,'value')]")
+driver.find_element_by_xpath("//class/class/class[i]")
+
+'//android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[1]'
+driver.swipe(x,y,x,y,n)滑动 滑动前坐标，滑动后坐标，触摸时间ms
+driver.lock(5)锁定屏幕
+driver.background_app(5)后置app
+driver.hide_keybord()隐藏键盘
+driver.start_activity('com.example.android.apis','.Foo')打开新活动
+driver.open_notifications()打开下拉通知
+driver.is_app_installed('com.example.android.api')验证应用是否已安装
+driver.installApp('path/to/example.apk')安装应用
+driver.removeApp('com.example.android.api')删除应用
+driver.shake()模拟摇晃
+driver.closeApp()关闭应用
+#driver.launch_app()用来继续进行使用了 autoLaunch=false 关键字时的初始化 (Launch) 流程的
+driver.reserApp()重置应用
+driver.contexts可用上下文(获取可操作对象)
+driver.current_context当前上下文
+driver.contest()切换到上下文
+driver.app_strings获取应用的字符串
+driver.keyevent(176)发送一个按键事件
+driver.current_activity当前活动
+TouchAction(driver).press(element=el,x=10,y=10)).release().perform()触摸动作
+driver.pinch(element=el)捏 双指向内移动缩小屏幕
+driver.zoom(element=el)放大 双指向外移动放大屏幕
+todo:python滑动到某元素
+
+
+
+driver.find_element_by_xpath('//*[@id="bank_ul"]/li[1]').click()
+这里是在xpath定位银行
+参数化：driver.find_element_by_xpath('//*[@id="bank_ul"]/li[{}]'.formate(i)).click()
+或者driver.find_element_by_xpath('//*[@id="bank_ul"]/li[%s]'%(i)).click()
+获取所有银行再选择:
+driver.find_elements_by_xpath('//*[@id="bank_ul"]/li')[i].click()

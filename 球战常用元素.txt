@@ -1,5 +1,0 @@
-三联球战
-常用元素：
-测试后台：fire.get('http://test.xbcx.com.cn/qiuchangadmin/login/index')
-输入账号：fire.find_element_by_name(u'AdminUser[loginname]').send_keys(u'admin')
-输入密码：fire.find_element_by_name(u'AdminUser[loginname]').send_keys(u'admin')

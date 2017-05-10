@@ -1,0 +1,3 @@
+安全
+Android端：梆梆和爱内测进行在线测试（在线检测的直接把加固混淆的APK包丢上）
+梆梆：http://passport.bangcle.com/users/userlogin?fromsite=dev&backurl=http%3A%2F%2Fdev.bangcle.com%2Fapps%2Findex 

@@ -1,0 +1,16 @@
+mysql(暂停学习)
+mysql卸载：
+	1.服务（开始——>控制面板——>管理工具——>服务）里停掉MySQL的服务
+	2.控制面板-添加删除程序，找到MySQL，卸载。
+	3.win+r，输入regedt，打开注册表，找到并删除：(没有则跳过)
+	HKEY_LOCAL_MACHINE/SYSTEM/ControlSet001/Services/Eventlog/Application/MySQL
+	HKEY_LOCAL_MACHINE/SYSTEM/ControlSet002/Services/Eventlog/Application/MySQL
+	HKEY_LOCAL_MACHINE/SYSTEM/CurrentControlSet/Services/Eventlog/Application/MySQL
+	4.打开工具>文件夹选项>查看，关闭隐藏，删除C:\ProgramData\
+
+安装后，添加环境变量：C:\Program Files\MySQL\MySQL Server 5.7\bin
+验证安装：mysqld.exe --console
+
+
+mysql(命令以";"结束)
+INSERT INTO user(host, user, password,select_priv, insert_priv,update_priv)VALUES ('localhost','guest',PASSWORD('asdf1234'),'Y','Y','Y');(因为5.7将password改为了authentication_string，替换后执行即可)

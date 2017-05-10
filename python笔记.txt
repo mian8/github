@@ -104,7 +104,9 @@ types模块										#判断对象是否是函数
 	s.set_age=types.MethodType(set_age,s)		#给实例/类绑定方法
 	
 .split()分隔	'str'.split('a') 根据'a'将str分隔输出list
-	re.split(r'\s+','str'),以至少一个空格作为分隔
+	re.split(r'\s+','str'),以至少一个空格作为分隔(re 中的split)
+	str.split(' ')按照空格分隔
+	
 .lower()将str转化为小写
 
 r'\\\d'  ->'\\\d'   r==row data(原始数据) 字符串前面加'r'将不会转义
@@ -124,6 +126,7 @@ os模块进行文件和文件夹操作
 time
 	time.sleep()
 	时间:time.strftime('%Y-%m-%d %H:%M%:%S')                     #需要先调用time
+	time.ctime()
 
 selenium.webdriver
 	from selenium import webdriver			#调用webdriver
@@ -141,7 +144,7 @@ selenium.webdriver
 		fire.forward()						#前进到下一页
 		fire.implicitly(30)					#设置等待超时30
 		fire.maximize_window()				#浏览器最大化
-		fire.name()							#浏览器名字
+		fire.name							#浏览器名字
 		fire.set_window_size(480,800)		#设置浏览器大小，参数为像素点
 		fire.title							#页面的title
 	<input id="kw" class="s_ipt" type="text" maxlength="100" name="wd" autocomplete="off">
@@ -177,6 +180,7 @@ selenium.webdriver
 		text			元素文本值（命令行.encode('gbk')）
 		tag_name		返回元素的tag_name
 		get_attribute('x')获取元素属性
+		配合send_keys()使用
 		Keys.BACK_SPACE 模拟'backspace'按键
 		Keys.CONTROL,'x' 模拟ctrl+x剪切
 		

@@ -1,0 +1,22 @@
+新建项目
+django-admin.py startproject myproname
+新建app
+python manage.py startapp mywebname
+同步数据库
+python manage.py makemigrations
+python manage.py migrate
+使用开发服务器
+python manage.py runserver
+python manege.py runserver 8007
+python manege.py runserver 0.0.0.0:8000
+清空数据库
+python manage.py flush
+创建超级管理员
+python manage.py createsuperuser
+修改用户密码
+python manage.py changepassword username
+导出数据，导入数据
+python manage.py dumpdata appname > appname.json
+python manage.py loaddata appname.json
+数据库命令行
+python manage.py dbshell
