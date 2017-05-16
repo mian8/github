@@ -27,6 +27,9 @@ desired_caps['newCommandTime‘]=60
 #.ipa or .apk文件所在的本地绝对路径或者远程路径,也可以是一个包括两者之一的.zip
 desired_caps['app']='c://example.apk'
 
+#查看apk的包名与入口使用 aapt dump badging *.apk
+#对应name和launchable-activity
+
 #需要启动的包名和activity名
 desired_caps['appPackage']='com.thinkive.essence'
 desired_caps['appActivity']='com.android.thinkive.webapp.activity.MainActivity
